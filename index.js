@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const allowedOrigins = [
   'https://classy-shortbread-ec361f.netlify.app', // موقعك على Netlify
-  'http://localhost:3000' // أثناء التطوير المحلي
+  'http://localhost:4000' // أثناء التطوير المحلي
 ];
 
 app.use(cors({
