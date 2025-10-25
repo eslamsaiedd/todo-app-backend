@@ -29,7 +29,7 @@ const register = async (req, res) => {
   const token = jwt.sign(
     { email: newUser.email, id: newUser._id },
     jwt_secret_key,
-    { expiresIn: "10m" }
+    { expiresIn: "2d" }
   );
 
   newUser.token = token;
@@ -65,7 +65,7 @@ const login = async (req, res) => {
     const token = await jwt.sign(
       { email: email, id: user._id },
       jwt_secret_key,
-      { expiresIn: "10m" }
+      { expiresIn: "2d" }
     );
     return res.status(200).json({ status: "SUCCESS", data: { token }});
   } else {
