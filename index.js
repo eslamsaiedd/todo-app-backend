@@ -5,16 +5,7 @@ const app = express()
 const cors = require('cors');
 
 
-const allowedOrigins = [
-  'https://classy-shortbread-ec361f.netlify.app', // موقعك على Netlify
-  'http://localhost:4000' // أثناء التطوير المحلي
-];
-
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 
