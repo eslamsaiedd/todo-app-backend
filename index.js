@@ -1,13 +1,24 @@
-require('dotenv').config();
 
+require('dotenv').config();
 const express  = require('express')
 const app = express()
+const path = require('path');
 const cors = require('cors');
+
+
+const allowedOrigins = [
+  'https://classy-shortbread-ec361f.netlify.app', // موقعك على Netlify
+  'http://localhost:3000' // أثناء التطوير المحلي
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 app.use(express.json());
 
-
-app.use(cors());
 
 const connectDB = require('./config/db');
 connectDB();
@@ -18,11 +29,11 @@ app.get("/", (req, res, next) => {
 
 const userRoutes = require('./routes/userroutes'); // أو الاسم اللي سميت الملف بيه
 const taskRoutes = require("./routes/tasksroute");
+
 app.use('/api/users', userRoutes);
 app.use("/api/tasks", taskRoutes);
 
 
-const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'front-end')));
 
