@@ -24,7 +24,7 @@ const register = async (req, res) => {
   });
 
   // generate token
-  const jwt_secret_key = process.env.JWT_SECRET_KEY;
+  const jwt_secret_key = process.env.jwt_secret_key;
 
   const token = jwt.sign(
     { email: newUser.email, id: newUser._id },
@@ -60,7 +60,7 @@ const login = async (req, res) => {
 
   if (user && matchedPassword) {
     //*logged in successfully
-    const jwt_secret_key = process.env.JWT_SECRET_KEY;
+    const jwt_secret_key = process.env.jwt_secret_key;
 
     const token = await jwt.sign(
       { email: email, id: user._id },
