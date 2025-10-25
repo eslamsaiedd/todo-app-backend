@@ -108,6 +108,8 @@ document.getElementById("accountIcon").addEventListener("click", () => {
 
 const token = localStorage.getItem("token");
 
+
+
 // get all the tasks from api
 async function getAllTasks() {
   const res = await fetch("https://todo-app-backend-production-3ef7.up.railway.app/api/tasks", {
@@ -195,8 +197,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     },
   });
 
-  const userData = await userRes.json();
+  if (!token) {
+    window.location.href = "index.html";
+    return;
+  }
 
+  const payload = JSON.parse(atob(token.split(".")[1]));
+  const currentTime = Date.now() / 1000;
+
+  if (payload.exp < currentTime) {
+    localStorage.removeItem("token"); 
+    window.location.href = "index.html"; 
+  }
+
+  const userData = await userRes.json();
   const heading = document.querySelector("h1");
   heading.textContent = `Welcome back, ${userData.data.firstName} 👋`;
 

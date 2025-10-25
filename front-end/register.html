@@ -55,7 +55,10 @@
             );
 
             const result = await response.json();
-            console.log(result);
+
+            if (result.message) {
+              alert(result.message)
+            }
 
             if (result.status == "SUCCESS") {
               localStorage.setItem("userName", data.firstName);
