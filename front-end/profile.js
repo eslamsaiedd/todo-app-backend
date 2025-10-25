@@ -45,6 +45,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
       taskCountEl.textContent = `${tasks.length} Tasks`;
     }
+
+    //! logout
+
+    document.querySelector('.logout-btn').addEventListener('click', () => {
+      localStorage.removeItem("token")
+      alert("You have been logged out successfully!");
+      window.location.href = "index.html";
+    })
+
+
   } catch (err) {
     console.error("Error loading profile:", err);
     nameEl.textContent = "Error loading user";

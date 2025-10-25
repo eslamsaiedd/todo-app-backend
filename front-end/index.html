@@ -50,13 +50,10 @@
               alert(result.message)
             }
 
-            
             if (result.status == "SUCCESS") {
               localStorage.setItem("token", result.data.token);
               window.location.href = "./home.html";
-            } else {
-              alert("something went wrong");
-            }
+            } 
           } catch (error) {
             console.error("Error:", error);
           }
