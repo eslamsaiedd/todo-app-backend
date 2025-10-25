@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="./authStyle.css" />
+    <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
     <div class="auth-container">
@@ -50,7 +50,7 @@
 
             if (result.status == "SUCCESS") {
               localStorage.setItem("token", result.data.token);
-              window.location.href = "./index.html";
+              window.location.href = "./home.html";
             } else {
               alert("something went wrong");
             }
