@@ -102,7 +102,19 @@ body {
 
 .task.done {
   opacity: 0.7;
+}
+
+/* خلي الخط يظهر بس على النص */
+.task.done div span:last-child {
   text-decoration: line-through;
+  color: gray;
+}
+
+/* تأكد إن الإيموجي والسلة شكلهم طبيعي */
+.task.done .status-toggle,
+.task.done button {
+  text-decoration: none;
+  color: inherit;
 }
 
 .task button {
@@ -116,3 +128,4 @@ body {
   cursor: pointer;
   font-size: 18px;
 }
+

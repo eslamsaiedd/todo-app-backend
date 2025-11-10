@@ -8,7 +8,7 @@ const usersController = require('../controllers/usercontroller')
 
 router.route('/me')
             .get(verifyToken, usersController.me)
-// '/me', authMiddleware, getMe
+
 // register
 router.route('/register')
             .post(usersController.register)
@@ -17,4 +17,5 @@ router.route('/register')
 router.route('/login')
             .post(usersController.login)
 
+            
 module.exports = router;
